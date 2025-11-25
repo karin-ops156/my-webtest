@@ -1,11 +1,174 @@
 @charset "utf-8";
-body{
-  background-color: #f0f8ff;
-  font-family: sans-serif;
+* {
+  box-sizing: border-box;
+  color: #000000;
+  margin: 0;
+  padding: 0;
 }
-h1{
-  color:red;
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: top;
 }
-p{
-  color:#555;
+ul {
+  list-style: none;
+}
+li a {
+  text-decoration: none;
+}
+
+h1 {
+  font-family: "Lilita One", sans-serif;
+  font-size: 75px;
+  font-weight: 400;
+  position: relative;
+  top: 42px;
+
+  color: #78b3ce;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 88.54vw;
+}
+
+/* ナビゲーション */
+nav {
+  position: relative;
+  top: 60px;
+
+  background-color: #f7f7f7;
+  border-radius: 25px;
+  padding: 25px 65px 24px;
+}
+nav ul {
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+}
+nav ul li {
+  font-size: 16px;
+
+  text-align: center;
+}
+nav ul li a span {
+  font-family: "Lora", serif;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+
+  color: #78b3ce;
+  display: block;
+  font-optical-sizing: auto;
+}
+/* ナビゲーションホバー */
+nav ul li a {
+  position: relative;
+
+  display: block;
+}
+nav ul li a::after {
+  position: absolute;
+  z-index: -1;
+  bottom: -5px;
+  left: 50%;
+
+  background-image: url(../images/cathand.png);
+  background-size: contain;
+  content: "";
+  height: 67px;
+  transform: translateX(-50%);
+  transition: 0.2s;
+  width: 34px;
+}
+nav ul li:hover a::after {
+  bottom: 43px;
+
+  transition: 0.5s;
+}
+
+/*---- メインイメージ ----*/
+.main {
+  position: relative;
+  z-index: -1;
+
+  margin: 0 auto;
+  text-align: right;
+  width: 88.54vw;
+}
+.main img {
+  width: 80vw;
+}
+
+/*-- スクロールバー --*/
+.scroll-bar {
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  position: absolute;
+  bottom: 90px;
+  left: 0;
+}
+.scroll-bar::before,
+.scroll-bar::after {
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+
+  background-color: #707070;
+  content: "";
+  height: 70px;
+  transform: translateX(-50%);
+  width: 2px;
+}
+.scroll-bar::after {
+  animation: scroll-bar 2s infinite;
+  background-color: #78b3ce;
+}
+@keyframes scroll-bar {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+/* テキスト横スクロールアニメーション */
+.font-scroll__animation {
+  font-family: "Lilita One", sans-serif;
+  font-size: 200px;
+  font-weight: 400;
+  display: flex;
+  overflow-x: hidden;
+}
+.font-scroll__animation div {
+  display: flex;
+  animation: font-scroll 40s 0.2s infinite linear;
+}
+.font-scroll__animation div span {
+  color: #c9e6f0;
+  margin-right: 0.2em;
+}
+@keyframes font-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/*-- 見出しのデザイン --*/
+.content-title::before,
+.about-head::before {
+  font-family: "Lilita One", sans-serif;
+  font-size: 2.8125rem;
+  font-weight: normal;
+  line-height: 0.8;
+  color: #16295d;
+  content: attr(data-title);
+  display: block;
+  margin-bottom: 0.281em;
+  text-transform: uppercase;
 }
