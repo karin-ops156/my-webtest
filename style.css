@@ -1,1 +1,11 @@
 @charset "utf-8";
+body{
+  background-color: #f0f8ff;
+  font-family: sans-serif;
+}
+h1{
+  color:#333;
+}
+p{
+  color:#555;
+}
